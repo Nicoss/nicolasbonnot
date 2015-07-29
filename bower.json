@@ -1,0 +1,8 @@
+{
+  "name": "nicolasbonnot-fr",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.1",
+    "gsap": "~1.15.1"
+  }
+}
