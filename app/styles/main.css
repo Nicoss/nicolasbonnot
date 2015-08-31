@@ -81,7 +81,6 @@ body {
 
 .global-container {
   position: relative;
-  overflow: auto;
 }
 
 .left-menu {
@@ -256,7 +255,7 @@ body {
 .projet-titre {
   position: absolute;
   color: #ffffff;
-  opacity: 0.9;
+  opacity: 0.8;
   font-size: 40px;
   height: 45px;
   top: 115px;
@@ -264,6 +263,51 @@ body {
   transition-timing-function: ease;
   transition: all 0.4s;
   z-index: 2;
+}
+
+.projet-arrow {
+  width: 100%;
+  height: 40px;
+  z-index: 2;
+  background-color: #ff0000;
+  position: absolute;
+  bottom: 10px;
+  background: url(../images/arrow-down.png) no-repeat center center; 
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  opacity: 0;
+  transition-timing-function: linear;
+  -webkit-animation: arrow-loop 1.5s infinite; /* Safari 4+ */
+  -moz-animation:    arrow-loop 1.5s infinite; /* Fx 5+ */
+  -o-animation:      arrow-loop 1.5s infinite; /* Opera 12+ */
+  animation:         arrow-loop 1.5s infinite; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes arrow-loop {
+  0%   { bottom: 10px; }
+  60% { bottom: 20px; }
+  85% { bottom: 20px; }
+  100%   { bottom: 10px; }
+}
+@-moz-keyframes arrow-loop {
+  0%   { bottom: 10px; }
+  60% { bottom: 20px; }
+  85% { bottom: 20px; }
+  100%   { bottom: 10px; }
+}
+@-o-keyframes arrow-loop {
+  0%   { bottom: 10px; }
+  60% { bottom: 20px; }
+  85% { bottom: 20px; }
+  100%   { bottom: 10px; }
+}
+@keyframes arrow-loop {
+  0%   { bottom: 10px; }
+  60% { bottom: 20px; }
+  85% { bottom: 20px; }
+  100%   { bottom: 10px; }
 }
 
 .projet-cover:hover .projet-titre {
@@ -378,5 +422,23 @@ body {
   height: 30px;
   z-index: 20;
   cursor: pointer;
+  display: none;
+}
+
+.gallery-sample {
+  width: 100%;
+  float: left;
+}
+.gallery-sample img {
+  width: 100%;
+  height: auto;
+}
+.gallery-sample figure {
+  display: block;
+  float: left;
+  margin: 0 5px 5px 0;
+  width: 150px;
+}
+.gallery-sample figcaption {
   display: none;
 }

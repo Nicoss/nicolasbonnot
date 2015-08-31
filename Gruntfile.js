@@ -28,6 +28,21 @@ module.exports = function (grunt) {
     // Project settings
     config: config,
 
+    bowerInstall: {
+ 
+    target: {
+   
+      // Point to the files that should be updated when 
+      // you run `grunt bower-install` 
+      src: [
+        'app/views/**/*.html',   // .html support... 
+        'app/views/**/*.jade',   // .jade support... 
+        'app/styles/main.scss',  // .scss & .sass support... 
+        'app/config.yml'         // and .yml & .yaml support out of the box! 
+      ]
+    }
+  },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -380,4 +395,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-bower-install');
 };

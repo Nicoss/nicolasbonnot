@@ -17,7 +17,68 @@ var menuIsOpened = false;
 
 var isMobile = false;
 
+var pswpElement;
+var items = [
+    {
+        src: '../images/background-bourse.jpg',
+        w: 1593,
+        h: 1032
+    },
+    {
+        src: '../images/background-echo.jpg',
+        w: 1593,
+        h: 1032
+    },
+    {
+        src: '../images/background-joconde.jpg',
+        w: 1593,
+        h: 1032
+    },
+    {
+        src: '../images/background-kodama.jpg',
+        w: 1593,
+        h: 1032
+    },
+    {
+        src: '../images/background-mourn.jpg',
+        w: 1593,
+        h: 1032
+    },
+    {
+        src: '../images/background-pixel.jpg',
+        w: 1593,
+        h: 1032
+    },
+    {
+        src: '../images/background-psd.jpg',
+        w: 1593,
+        h: 1032
+    },
+    {
+        src: '../images/background-simon.jpg',
+        w: 1593,
+        h: 1032
+    },
+    {
+        src: '../images/background-yist.jpg',
+        w: 1593,
+        h: 1032
+    }
+];
+var options = {
+    index: 0,
+    showHideOpacity: true,
+    showAnimationDuration: 800,
+    fullscreenEl: false,
+	shareEl: false,
+	closeOnScroll: false,
+	getThumbBoundsFn: startingPointAnimation
+};
+var gallery;
+
 $(document).ready(function() {
+
+	pswpElement = document.querySelectorAll('.pswp')[0]
 
 	// device detection
 	if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -98,6 +159,11 @@ $(document).ready(function() {
 				'width': $(window).width()
 			});
 		}
+	});
+
+	$('.test').on('click', function() {
+		gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+		gallery.init();
 	});
 
 });
@@ -196,6 +262,7 @@ function openSection(div) {
 				'top': 115
 			})
 		});
+		TweenLite.to(div.children('.projet-cover').children('.projet-arrow'), 0.6, {opacity: 0.8, ease: Power2.easeInOut});
 	}, 600);
 
 	TweenLite.to(div, 0.6, {height: $(window).height(), ease: Power2.easeInOut});
@@ -260,6 +327,7 @@ function openSectionFromMenu(divUp, divDown) {
 			})
 		});
 		TweenLite.to(window, 0.6, {scrollTo:{y:0}, ease:Power2.easeInOut});
+		TweenLite.to(divDown.children('.projet-cover').children('.projet-arrow'), 0.6, {opacity: 0, ease: Power2.easeInOut});
 		setTimeout(function() {
 			divUp.children('.projet-cover').children('.projet-titre').css({
 				'position': 'fixed',
@@ -280,6 +348,7 @@ function openSectionFromMenu(divUp, divDown) {
 					'opacity': 0.7
 				});
 			}
+			TweenLite.to(divUp.children('.projet-cover').children('.projet-arrow'), 0.6, {opacity: 0.8, ease: Power2.easeInOut});
 		}, 600);
 		/*closeAllSections();
 		projectOpened = false;*/
@@ -316,6 +385,7 @@ function closeAllSections() {
 	$('.projet-cover').each(function() {
 		divToReduce = $(this).parent('.projet');
 		TweenLite.to(divToReduce, 0.6, {height: 300, ease: Power2.easeInOut, onComplete: enable_scroll, delay: 0.6});
+		TweenLite.to(divToReduce.children('.projet-cover').children('.projet-arrow'), 0.6, {opacity: 0, ease: Power2.easeInOut});
 	});
 	TweenLite.to(window, 0.6, {scrollTo:{y:scrollValueBeforeOpening}, ease: Power2.easeInOut, delay: 0.6});
 }
@@ -329,10 +399,10 @@ function hideContent() {
 }
 
 function preventDefault(e) {
-  e = e || window.event;
-  if (e.preventDefault)
-      e.preventDefault();
-  e.returnValue = false;  
+	e = e || window.event;
+	if (e.preventDefault)
+	e.preventDefault();
+	e.returnValue = false;  
 }
 
 function keydown(e) {
@@ -349,11 +419,11 @@ function wheel(e) {
 }
 
 function disable_scroll() {
-  if (window.addEventListener) {
-      window.addEventListener('DOMMouseScroll', wheel, false);
-  }
-  window.onmousewheel = document.onmousewheel = wheel;
-  document.onkeydown = keydown;
+	if (window.addEventListener) {
+		window.addEventListener('DOMMouseScroll', wheel, false);
+	}
+	window.onmousewheel = document.onmousewheel = wheel;
+	document.onkeydown = keydown;
 }
 
 function enable_scroll() {
@@ -362,4 +432,8 @@ function enable_scroll() {
     }
     window.onmousewheel = document.onmousewheel = document.onkeydown = null;
 	isAnimating = false;  
+}
+
+function startingPointAnimation() {
+	return {x:0, y:0, w:0};
 }

@@ -10,6 +10,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/photoswipe/dist/photoswipe.css" />
+    <link rel="stylesheet" href="bower_components/photoswipe/dist/default-skin/default-skin.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -43,7 +45,7 @@
               <li><span class="link-projet" data-position="8">Paris Shop & Design</span></li>
             </ul>
           </div>
-
+<!--
           <div class="menu-cv">
             <div class="menu-titre">
               CV
@@ -52,7 +54,7 @@
               <li><span>Voir le CV en ligne</span></li>
             </ul>
           </div>
-
+-->
           <div class="menu-contact">
             <div class="menu-titre">
               Contact
@@ -74,6 +76,7 @@
             <div class="projet-cover">
               <div class="black-layer"></div>
               <div class="projet-titre"><span>Mourn</span></div>
+              <div class="projet-arrow"></div>
             </div>
           </div>              
 
@@ -81,6 +84,7 @@
             <div class="projet-cover">
               <div class="black-layer"></div>
               <div class="projet-titre"><span>Pixel Vinyl</span></div>
+              <div class="projet-arrow"></div>
             </div>
           </div>    
 
@@ -88,6 +92,7 @@
             <div class="projet-cover">
               <div class="black-layer"></div>
               <div class="projet-titre"><span>Echo</span></div>
+              <div class="projet-arrow"></div>
             </div>
           </div>    
 
@@ -95,6 +100,7 @@
             <div class="projet-cover">
               <div class="black-layer"></div>
               <div class="projet-titre"><span>Simon Pong</span></div>
+              <div class="projet-arrow"></div>
             </div>
           </div>           
 
@@ -102,6 +108,7 @@
             <div class="projet-cover">
               <div class="black-layer"></div>
               <div class="projet-titre"><span>JocondeLab</span></div>
+              <div class="projet-arrow"></div>
             </div>
           </div>           
 
@@ -109,6 +116,7 @@
             <div class="projet-cover">
               <div class="black-layer"></div>
               <div class="projet-titre"><span>Yes I Speak Touriste</span></div>
+              <div class="projet-arrow"></div>
             </div>
           </div>            
 
@@ -116,6 +124,7 @@
             <div class="projet-cover">
               <div class="black-layer"></div>
               <div class="projet-titre"><span>Bourse Emploi Paris</span></div>
+              <div class="projet-arrow"></div>
             </div>
           </div>           
 
@@ -123,6 +132,7 @@
             <div class="projet-cover">
               <div class="black-layer"></div>
               <div class="projet-titre"><span>Paris Shop & Design</span></div>
+              <div class="projet-arrow"></div>
             </div>
           </div>
 
@@ -138,6 +148,16 @@
               Projet de fin d'études à Gobelins ayant pour thème "Le changement". Il s'agit d'un jeu vidéo en coopération sur plateforme desktop réalisé à l'aide du logiciel Unity 3D entre deux joueurs ne se connaissant pas et pouvant échanger par le biais d'une communication sensorielle. Adaptation libre du roman "Voyage au centre de la terre" de Jules Verne, le jeu prend le parti de de traiter du deuil en toile de fond pour aborder les différentes étapes de gameplay entre les deux joueurs
             </div>
             <!-- <div class="projet-lien"><a href="">lien</a></div> -->
+            <div class="gallery-sample" itemscope>
+              <figure class="test" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <img src="https://farm3.staticflickr.com/2567/5697107145_a4c2eaa0cd_o.jpg" itemprop="thumbnail" alt="Image description" />
+                  <figcaption itemprop="caption description">Image caption</figcaption>
+              </figure>
+              <figure class="test" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <img src="https://farm3.staticflickr.com/2567/5697107145_a4c2eaa0cd_o.jpg" itemprop="thumbnail" alt="Image description" />
+                  <figcaption itemprop="caption description">Image caption</figcaption>
+              </figure>
+            </div>
           </div>
 
           <div class="projet-content" data-position="2">
@@ -151,7 +171,7 @@
               </ul>
             </div>
             <div class="projet-description">
-              Workshop de 5 jours autour de la technologie WebGL en s'appuyant de la librairie threeJS. Le thème était "la forme".
+              Workshop de 5 jours autour de la technologie WebGL en s'appuyant sur la librairie threeJS. Le thème était "la forme".
             </div>
             <div class="projet-lien"><a href="http://nicolasbonnot.fr/pixelVinyl" target="blank">Voir le projet</a></div>
           </div>
@@ -256,12 +276,50 @@
 
     </div>
 
+    <!-- DOM content for PhotoSwipe -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+          <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+            <button class="pswp__button pswp__button--share" title="Share"></button>
+            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+            <div class="pswp__share-tooltip"></div> 
+          </div>
+          <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
     <script src="bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
+    <script src="bower_components/photoswipe/dist/photoswipe.js"></script>
+    <script src="bower_components/photoswipe/dist/photoswipe-ui-default.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

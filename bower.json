@@ -2,7 +2,8 @@
   "name": "nicolasbonnot-fr",
   "private": true,
   "dependencies": {
+    "gsap": "~1.15.1",
     "jquery": "~1.11.1",
-    "gsap": "~1.15.1"
+    "photoswipe": "~4.1.0"
   }
 }
