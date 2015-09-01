@@ -427,18 +427,22 @@ body {
 
 .gallery-sample {
   width: 100%;
-  float: left;
+  text-align: center;
 }
-.gallery-sample img {
-  width: 100%;
-  height: auto;
-}
-.gallery-sample figure {
-  display: block;
-  float: left;
-  margin: 0 5px 5px 0;
+
+.image-container {
+  height: 90px;
   width: 150px;
+  /*overflow: hidden;*/
+  text-align: center;
+  margin: 10px;
+  border: 0px;
+  display: inline-block;
+  line-height: 0px;
+  vertical-align: top;
 }
-.gallery-sample figcaption {
-  display: none;
+
+.image-container img {
+  max-width: 150px;
+  max-height: 90px;
 }
