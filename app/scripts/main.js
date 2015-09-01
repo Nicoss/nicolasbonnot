@@ -19,7 +19,8 @@ var isMobile = false;
 
 var pswpElement;
 var gallery;
-var items;
+var item;
+var items = [];
 var imageSelected;
 
 $(document).ready(function() {
@@ -108,51 +109,17 @@ $(document).ready(function() {
 	});
 
 	$('.image-container').on('click', function() {
+		items = [];
 		imageSelected = $(this);
 		indexStart = parseInt(imageSelected.data('index'));
-		console.log(indexStart);
-		items = [
-		    {
-		        src: 'images/background-echo.jpg',
-		        w: 1593,
-		        h: 1032
-		    },
-		    {
-		        src: 'images/background-joconde.jpg',
-		        w: 1593,
-		        h: 1032
-		    },
-		    {
-		        src: 'images/background-kodama.jpg',
-		        w: 1593,
-		        h: 1032
-		    },
-		    {
-		        src: 'images/background-mourn.jpg',
-		        w: 1593,
-		        h: 1032
-		    },
-		    {
-		        src: 'images/background-pixel.jpg',
-		        w: 1593,
-		        h: 1032
-		    },
-		    {
-		        src: 'images/background-psd.jpg',
-		        w: 1593,
-		        h: 1032
-		    },
-		    {
-		        src: 'images/background-simon.jpg',
-		        w: 1593,
-		        h: 1032
-		    },
-		    {
-		        src: 'images/background-yist.jpg',
-		        w: 1593,
-		        h: 1032
-		    }
-		];
+		imageSelected.parent('.gallery-sample').children('.image-container').each(function() {
+			item = {
+                src: $(this).data('src'),
+                w: parseInt($(this).data('width')),
+                h: parseInt($(this).data('height'))
+            };
+            items.push(item);
+		});
 		var options = {
 		    index: indexStart-1,
 		    showHideOpacity: true,
@@ -161,7 +128,9 @@ $(document).ready(function() {
 			shareEl: false,
 			closeOnScroll: false,
 			getThumbBoundsFn: function(index) {
-				return {x:imageSelected.offset().left, y:imageSelected.offset().top, w:150};
+                var thumbnail = imageSelected.parent('.gallery-sample').children('.image-container').eq(index), // find thumbnail
+                    rect = thumbnail.offset(); 
+                return {x:rect.left, y:rect.top, w:150};
 			}
 		};
 		// change items_mourn
